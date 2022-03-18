@@ -11,7 +11,7 @@
 /* 높이가 0 이기 때문 */
 html,body {
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
 }
 
 html {

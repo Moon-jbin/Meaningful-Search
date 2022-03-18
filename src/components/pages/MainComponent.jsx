@@ -1,22 +1,28 @@
-import React from 'react';
 import HeaderComponent from "../HeaderComponent";
 import FooterComponent from "../FooterComponent";
 import styled from "styled-components";
-
+import SearchResultComponent from './SearchResultComponent';
+import InputComponent from '../organisms/InputComponent';
 const MainComponent = () => {
+  
+
   return (
-    <>
+    <Wrapper>
       <HeaderComponent/>
       <Main>
         <Form>
-         <Input/>
-         <Button>검색</Button>
+          <InputComponent/>
         </Form>
       </Main>
       <FooterComponent/>
-    </>
+    </Wrapper>
   );
 };
+
+
+const Wrapper = styled.div`
+  width:100%;
+`
 
 
 const Main = styled.div`
@@ -29,22 +35,7 @@ const Form = styled.form`
   display: flex;
   justify-content: center;
 `;
-const Input = styled.input`
-  border: 1px solid #ccc;
-  border-right: none;
-  outline: none;
-  height: 50px;
-  flex: 1;
-  max-width: 500px;
-  padding: 15px;
-  font-size: 17px;
-`
-const Button = styled.button`
-border: 1px solid #ccc;
-border-left: 0;
-background: #fff;
-padding: 15px;
-`;
+
 
 
 export default MainComponent;
