@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 const MainComponent = () => {
 
   const button = buttonList.map((item)=>{return(
-    <Link to={item.id} key={item.id}>
+    <CustomLink to={item.id} key={item.id}>
       <Button>{item.name}</Button>
-    </Link>
+    </CustomLink>
   )})
 
   return (
@@ -15,6 +15,7 @@ const MainComponent = () => {
       <Wrapper>
         <Header>
           <Title>Meaningful Search</Title>
+          <Message>검색하실 타입을 클릭해주세요.</Message>
         </Header>
         <Main>
           <ButtonWrap>
@@ -30,10 +31,13 @@ const MainComponent = () => {
   );
 };
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  width: 100%;
+`;
 // Header 시작
 const Header = styled.header`
   width: 100%;
+  margin: 0 0 20px 0;
 `
 const Title = styled.h1`
   width: 100%;
@@ -45,6 +49,15 @@ const Title = styled.h1`
   margin: 30px auto;
 
 `
+const Message = styled.p`
+  text-align: center;
+  font-size: 12px;
+  color: #777;
+  font-family: bold;
+  
+
+`;
+
 // Header 끝
 
 // Main 시작
@@ -62,20 +75,29 @@ const ButtonWrap = styled.div`
 `;
 const Button = styled.button`
   display: block;
-  margin: 20px auto;
-  width: 60%;
-  height: 50px;
+  width: 100%;
+  height: 100%;
   background: #fff;
   border-radius: 5px;
   border: 1px solid #ddd;
   font-weight: 600;
   font-size: 12px;
   transition: all .3s;
+  font-family: bold;
+  cursor: pointer;
   &:hover {
     background: #000;
     color: #fff;
   }
 `;
+
+const CustomLink = styled(Link)`
+  display: block;
+  width: 60%;
+  height: 50px;
+  margin: 20px auto;
+  border-radius: 5px;
+`
 
 
 // Main 끝

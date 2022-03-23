@@ -4,11 +4,13 @@ import MovieComponent from "./components/pages/MovieComponent";
 import BookComponent from "./components/pages/BookComponent.jsx";
 import KnowledgeComponent from "./components/pages/KnowledgeComponent";
 import ImageComponent from "./components/pages/ImageComponent";
+import TopNav from "./components/organisms/TopNav";
 
 const Router = () => {
   return (
     <>
      <BrowserRouter>
+      <TopNav/>
       <Routes>
         <Route path="/" element={<MainComponent/>}/>
         <Route path="/movie" element={<MovieComponent/>}/>

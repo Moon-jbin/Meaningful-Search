@@ -1,24 +1,35 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import { getMovieList } from "../../API";
+import { getMovieList} from "../../API";
 import MovieListComponent from "../organisms/MovieListComponent";
+import { countryData, genreData } from "../../datas";
 
 const MovieComponent = () => {
-
   const [movieList, setMovieList] = useState([]);
-  const [text, setText] = useState(""); 
+  const [text, setText] = useState("");
+  const [country, setCountry] = useState("ALL"); 
+  const [genre, setGenre] = useState("ALL"); 
+
+  useEffect(()=>{
+    searchMovieList();
+  },[country, genre])
 
 
-
-  const onSubmitFn = (e) => {
-    if(text==="")return
+  const onSubmitFn = (e) => {    
     e.preventDefault();
-
     searchMovieList();
   }
 
   const searchMovieList = async () => {
-    const {items} = await getMovieList({query: text});
+    if(text==="")return
+
+
+    const params = {query: text};
+
+    if(country !=="ALL") params.country = country;
+    if(genre !=="ALL") params.genre = genre;
+
+    const {items} = await getMovieList(params);
 
     setMovieList(items);
   };
@@ -29,6 +40,22 @@ const MovieComponent = () => {
         <Header>
           <Title>Movie</Title>
           <Form onSubmit={onSubmitFn}>
+            <Select onChange={(e)=>setCountry(e.target.value)} >
+              <option value="ALL">전체</option>
+              {countryData.map((item)=>{
+                return (
+                  <option key={item.id} value={item.id}>{item.name}</option>
+                )
+              })}
+            </Select>
+            <Select onChange={(e)=>setGenre(e.target.value)}>
+              <option value="ALL">전체</option>
+              {genreData.map((item)=>{
+                return(
+                  <option key={item.id} value={item.id}>{item.name}</option>
+                )
+              })}
+            </Select>
              <InputText placeholder="Search" onChange={(e)=>setText(e.target.value)} value={text}/>
              <Button>검색</Button>
           </Form>
@@ -60,9 +87,19 @@ const Title = styled.h1`
 const Form = styled.form`
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: auto auto 40px auto;
-
 `;
+
+const Select = styled.select`
+  border: 1px solid #ccc;
+  margin: 0 5px 0 0;
+  height: 30px;
+  color: #000;
+`;
+
+
+
 
 const InputText = styled.input`
   border: 1px solid #ccc;
