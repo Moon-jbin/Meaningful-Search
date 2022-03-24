@@ -1,20 +1,9 @@
 export const buttonList = [
-  {
-    id:"/movie",
-    name:"영화"
-  },
-  {
-    id:"/book",
-    name:"책"
-  },
-  {
-    id:"/knowledge",
-    name:"지식인"
-  },
-  {
-    id:"/image",
-    name:"이미지"
-  }
+  { id:"/blog", name:"블로그" },
+  { id:"/movie", name:"영화" },
+  { id:"/book", name:"책" },
+  { id:"/knowledge", name:"지식인" },
+  { id:"/image", name:"이미지" }
 ];
 
 
@@ -76,4 +65,25 @@ export const navData = [
   { root: "/book", name:"책"},
   { root: "/knowledge", name:"지식인"},
   { root: "/image", name:"이미지"},
+];
+
+
+export const sortData = [
+  { id:"sim", name:"유사도순" },
+  { id:"date", name:"출간일순" },
+  { id:"count", name:"판매량순" },
+]
+
+
+
+export const kinSortData = [
+  {id:"sim", name:"유사도순"},
+  {id:"date", name:"날짜순"},
+  {id:"point", name:"평점순"},
+]
+
+
+export const imageSortData = [
+  {id:"sim", name:"유사도순"},
+  {id:"date", name:"날짜순"}
 ]
