@@ -27,8 +27,11 @@ const List = styled.div`
   grid-template-columns: 1fr 1fr;
 `;
 
-const Item = styled.div``;
-const Thumbnail = styled.img``;
-const Title = styled.span``;
+const Item = styled.div`
+`;
+const Thumbnail = styled.img`
+`;
+const Title = styled.span`
+`;
 
 export default MovieListComponent;

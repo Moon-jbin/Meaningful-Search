@@ -24,8 +24,8 @@ const KnowledgeComponent = () => {
     if(text==="")return;
 
     const params = {query: text, sort}
-    const {data} = await getKnowledgeList(params)
-    setKinList(data.items);
+    const {items} = await getKnowledgeList(params)
+    setKinList(items);
   }
 
   return (

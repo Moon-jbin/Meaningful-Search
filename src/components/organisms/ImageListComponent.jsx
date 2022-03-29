@@ -5,12 +5,7 @@ const ImageListComponent = ({data}) => {
   const ImageItems = data.map((item,idx)=>{
     return(
       <Item key={idx}>
-        <Thumbnail src={item.link}/>
-        <Title
-          dangerouslySetInnerHTML={{
-            __html:item.title
-          }}
-        />
+        <Thumbnail src={item.thumbnail}/>
       </Item>
     )
   })
@@ -23,14 +18,19 @@ const ImageListComponent = ({data}) => {
 };
 
 const List = styled.div`
+  margin: 10px;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 `;
 
-const Item = styled.div``;
+const Item = styled.div`
+  height: auto;
+  margin: 0 0 10px;
+`;
 const Thumbnail = styled.img`
   display: block;
+  border: 1px solid #333;
+  /* width: 218px; */
 `;
-const Title = styled.span``;
 
 export default ImageListComponent;

@@ -22,10 +22,16 @@ const ImageComponent = () => {
   const searchImageList = async() => {
     if(text==="")return;
 
-    const params = {query:text , sort}
-    const  {data}= await getImageList(params);
-    setImageList(data.items)
-    console.log(data.items)
+    try{
+      const params = {query:text , sort, display:30}
+      const {items}= await getImageList(params);
+      setImageList(items)
+      console.log(items)
+    }catch(err){
+      console.error(err)
+    }
+    
+    // console.log(data.items)
   }
 
 
