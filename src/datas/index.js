@@ -61,6 +61,7 @@ export const genreData = [
 
 export const navData = [
   { root: "/", name:"홈"},
+  { root: "/blog", name:"블로그"},
   { root: "/movie", name:"영화"},
   { root: "/book", name:"책"},
   { root: "/knowledge", name:"지식인"},

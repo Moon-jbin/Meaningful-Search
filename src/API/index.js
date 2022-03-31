@@ -54,4 +54,18 @@ export const getImageList = async(params) => {
     return data
 };
 
+export const getBlogList = async(params) => {
+
+
+  const {data} = await axios.get("/v1/search/blog.json",{
+    headers: {
+      "X-Naver-Client-Id" : "HC2v5RaXKKNAhu1IZRav",
+      "X-Naver-Client-Secret": "72GmZ4lAiu",
+    },
+    params: params
+  });
+
+  return data
+};
+
 

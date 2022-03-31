@@ -4,6 +4,7 @@ import MovieComponent from "./components/pages/MovieComponent";
 import BookComponent from "./components/pages/BookComponent.jsx";
 import KnowledgeComponent from "./components/pages/KnowledgeComponent";
 import ImageComponent from "./components/pages/ImageComponent";
+import BlogComponent from "./components/pages/BlogComponent";
 import TopNav from "./components/organisms/TopNav";
 
 const Router = () => {
@@ -17,6 +18,7 @@ const Router = () => {
         <Route path="/book" element={<BookComponent/>}/>
         <Route path="/image" element={<ImageComponent/>}/>
         <Route path="/knowledge" element={<KnowledgeComponent/>}/>
+        <Route path="/blog" element={<BlogComponent/>}/>
       </Routes>
      </BrowserRouter> 
     </>
